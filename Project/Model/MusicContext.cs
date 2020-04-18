@@ -2,9 +2,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Model
 {
-    public class LibraryContext : DbContext
+    public class MusicContext : DbContext
     {
-        public LibraryContext(DbContextOptions<LibraryContext> options): base(options)
+        public MusicContext(DbContextOptions<MusicContext> options): base(options)
         {
 
         }

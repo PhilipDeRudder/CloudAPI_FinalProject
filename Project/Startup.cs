@@ -28,7 +28,7 @@ namespace Project
         public void ConfigureServices(IServiceCollection services)
         {
             //library instellen voor DI + aangeven dat deze moet werken met een SQL Server Databank
-           services.AddDbContext<LibraryContext>(
+           services.AddDbContext<MusicContext>(
                options => options.UseSqlServer(
                    Configuration.GetConnectionString("DefaultConnection")
 
@@ -41,7 +41,7 @@ namespace Project
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, LibraryContext libContext)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, MusicContext libContext)
         {
             if (env.IsDevelopment())
             {

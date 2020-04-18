@@ -7,7 +7,7 @@ namespace Model
     public class DbInitializer
     {
         //onderstaand is voor zekerheid dat er iets in de database is aangemaakt.
-        public static void Initialize(LibraryContext context)
+        public static void Initialize(MusicContext context)
         {
             //aanmaken van database indien deze nog niet bestaat
             context.Database.EnsureCreated();
@@ -18,7 +18,7 @@ namespace Model
                 //album aanmaken
                 var testAlbum = new Album()
                 {
-                    album_name = "TestAlbum"
+                    album_title = "TestAlbum"
                 };
 
                 //toevoegen van test album aan databank
