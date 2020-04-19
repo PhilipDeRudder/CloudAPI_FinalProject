@@ -29,7 +29,7 @@ namespace Controllers
 
         //nieuw album aanmaken(CREATE)
         [HttpPost]
-        public IActionResult CreatAuhtor([FromBody] Album newAlbum)
+        public IActionResult CreatAlbum([FromBody] Album newAlbum)
         {
             context.Albums.Add(newAlbum);
             context.SaveChanges();

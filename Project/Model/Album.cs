@@ -15,7 +15,6 @@ namespace Model
         public Artist Artist { get; set; }
 
         //album heeft meerder tracks
-        public ICollection<Track> Tracks {get; set;}
         
     }
 }

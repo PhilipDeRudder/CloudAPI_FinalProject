@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
@@ -10,10 +11,9 @@ namespace Model
         public string artist_name { get; set; }
         [JsonIgnore]
 
-        //artiest heeft meerdere albums --> 1 op veel
-        public ICollection<Album> Albums { get; set; }
-        // artiest heeft meerdere tracks --> Track kan meerdere artiesten hebben  veel op veel
-        public ICollection<Track> Tracks { get; set; }
+        public ICollection<Album> Albums {get; set;}
+
+       
         
     }
 }
