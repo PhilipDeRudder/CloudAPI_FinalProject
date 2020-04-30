@@ -1,19 +1,19 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
 namespace Model
 {
-    public class Album
+    public class BandMember
     {
         public int Id { get; set; }
-        public string album_title { get; set; }
-        public string album_genre { get; set; }
+
+        public string Instrument { get; set; }
+        public string member_name { get; set; }
         [JsonIgnore]
 
-        //1 op veel relatie --> album heeft 1 artiest 
         public Artist Artist { get; set; }
-
-        //album heeft meerder tracks
+       
         
     }
 }

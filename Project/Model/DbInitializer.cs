@@ -1,3 +1,4 @@
+using System.Threading;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -58,9 +59,18 @@ namespace Model
                 context.SaveChanges();
             }
 
+            if(!context.BandMembers.Any()){
+
+                var bandmember = new BandMember(){
+
+                    member_name = "Jos",
+                    Instrument = "Drums"
+                    
+                };
 
 
-               
+            }
+        
         }
     }
 }
