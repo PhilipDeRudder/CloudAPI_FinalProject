@@ -7,13 +7,9 @@ namespace Model
     {
         public int Id { get; set; }
         public string album_title { get; set; }
-        public string album_genre { get; set; }
-        [JsonIgnore]
+        public string album_genre { get; set; } 
+     
 
-        //1 op veel relatie --> album heeft 1 artiest 
-        public Artist Artist { get; set; }
 
-        //album heeft meerder tracks
-        
     }
 }

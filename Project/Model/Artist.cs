@@ -12,6 +12,7 @@ namespace Model
 
         public ICollection<Album> Albums {get; set;}
 
+        //artiest heeft meerdere band members
         public ICollection<BandMember> BandMembers{get; set;}
 
        

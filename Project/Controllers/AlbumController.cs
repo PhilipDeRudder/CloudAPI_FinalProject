@@ -37,46 +37,7 @@ namespace Controllers
         }
 
 
-        //specifiek album opvragen + relaties mee ophalen adhv id
-        [Route("{id}")]
-        [HttpGet]
-        public IActionResult getAlbum(int id)
-        {
-            //zoeken naar een bepaald album
-            var album = context.Albums
-                            .Include(d => d.Artist)
-                            .SingleOrDefault( d => d.Id == id);
-
-
-            //indien niet gevonden 404
-            if(album == null)
-                return NotFound();
-
-            //anders ist inordeuhhhh
-            return Ok(album);
-        }
-
-        //zoeken op genre, titel of artiest
-        // api/v1/albums?genre=d&b
-        // api/v1/albums?artist=netsky
-        // api/v1/albums?title=titel
-        //TODO: PAGING????
-        [HttpGet]
-        public List<Album> GetAlbums(string genre, string artist, string title)
-        {
-            IQueryable<Album> query = context.Albums;
-
-            if(!string.IsNullOrWhiteSpace(genre))
-                query = query.Where(d => d.album_genre ==genre);
-            if(!string.IsNullOrWhiteSpace(artist))
-                query = query.Where(d => d.Artist.artist_name == artist);
-            if(!string.IsNullOrWhiteSpace(title))
-                query = query.Where(d => d.album_title == title);
-
-            
-                return query.ToList();
-        }
-
+       
 
         //Album verwijderen (DELETE)
         [Route("id")]
