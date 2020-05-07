@@ -4,8 +4,13 @@ namespace Model
 {
     public class MusicContext : DbContext
     {
+        protected override void OnModelCreating(ModelBuilder modelBuilder){
+            modelBuilder.Entity<ArtistTrack>().HasKey(sa => new { sa.ArtistId, sa.TrackId });
+        }
+
         public MusicContext(DbContextOptions<MusicContext> options): base(options)
         {
+
 
         }
 
@@ -13,7 +18,7 @@ namespace Model
         public DbSet<Artist> Artists {get; set;}
         public DbSet<Track> Tracks {get; set;}
 
-        public DbSet<BandMember> BandMembers{get;set;}
+        public DbSet<ArtistTrack> ArtistTracks{get;set;}
 
 
     }

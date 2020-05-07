@@ -1,0 +1,4 @@
+SELECT * from BandMembers
+
+ALTER TABLE BandMembers
+ADD Instrument nvarchar(max)

@@ -59,17 +59,22 @@ namespace Model
                 context.SaveChanges();
             }
 
-            if(!context.BandMembers.Any()){
-
-                var bandmember = new BandMember(){
-
-                    member_name = "Jos",
-                    Instrument = "Drums"
+            if (!context.Tracks.Any())
+            {
+                //album aanmaken
+                var testTrack = new Track()
+                {
+                    track_name = "TestArtist"
                     
                 };
 
-
+                //toevoegen van testartiest aan databank
+                context.Tracks.Add(testTrack);
+                //opslagen van de aanpassingen aan de db
+                context.SaveChanges();
             }
+
+           
         
         }
     }
