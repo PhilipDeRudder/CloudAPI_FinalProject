@@ -72,9 +72,63 @@ namespace Controllers
 
         }       
 
+         [HttpGet]
+        public List<Album> GetAllAlbums(string genre, string title, DateTime releasedate, int? page,string sort, int length = 2, string dir = "asc")
+        {
+            IQueryable<Album> query = context.Albums;
+            /////////PAGING///////////////
+            if (!string.IsNullOrWhiteSpace(genre))
+                query = query.Where(d => d.album_genre == genre);
+            if (!string.IsNullOrWhiteSpace(title))
+                query = query.Where(d => d.album_title == title);
 
-        
+            if(page.HasValue)
+                query = query.Skip(page.Value * length);
+            query = query.Take(length);
 
-        
+             /////////PAGING///////////////
+
+             ////////SORTING//////////////
+            if(!string.IsNullOrWhiteSpace(sort))
+            {
+                switch(sort)
+                {
+                    case "genre":
+                        if(dir == "asc")
+                            query = query.OrderBy(d =>d.album_genre);
+                        else if(dir == "desc")
+                            query = query.OrderByDescending(d => d.album_genre);
+                        
+                    break;
+
+                    case "title":
+                        if(dir =="asc")
+                            query = query.OrderBy(d => d.album_title);
+                        else if(dir == "desc")
+                            query = query.OrderByDescending(d => d.album_title);
+                    break;
+
+                    case "releasedate":
+                        if(dir =="asc")
+                            query = query.OrderBy(d => d.release_date.Year);
+                        else if(dir =="desc")
+                            query = query.OrderByDescending(d => d.release_date.Year);
+                    break;
+                }
+
+
+            }
+            ////////SORTING//////////////
+
+
+            return query.ToList();
+          
+
+        }
+
+
+
+
+
     }
 }

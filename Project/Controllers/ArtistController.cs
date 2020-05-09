@@ -49,7 +49,7 @@ namespace Controllers
         {
             var artist = context.Artists
                                 .Include(d => d.Albums)
-                                .SingleOrDefault(d => d.ArtisId == id);
+                                .SingleOrDefault(d => d.Id == id);
             if(artist == null)
                 return NotFound();
 
@@ -90,7 +90,7 @@ namespace Controllers
         [HttpPut]
         public IActionResult UpdateArtist([FromBody] Artist updateArtist)
         {
-            var orgArtist = context.Artists.Find(updateArtist.ArtisId);
+            var orgArtist = context.Artists.Find(updateArtist.Id);
                 if(orgArtist == null)
                     return NotFound();
 

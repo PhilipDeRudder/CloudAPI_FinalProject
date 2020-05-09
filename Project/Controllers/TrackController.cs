@@ -21,14 +21,8 @@ namespace Controllers
         }
 
 
-        //werkt
-        //gegevens opvragen
-        //opvragen van alle tracks
-        [HttpGet] //api/v1/tracks
-        public List<Track> GetallTracks(){
-            return context.Tracks.ToList();
-
-        }
+   
+        
 
         //tested --> werkt
         //gegevens toevoegen
@@ -87,28 +81,50 @@ namespace Controllers
 
         }
 
-        //tested --> werkt
-        //aanpassen van een object.
-        //eerst properties van object aanpassen en vervolgens wijzigingen bewaren.
+        //paging+sorting
 
-        [HttpPut]
-        public IActionResult UpdateTrack([FromBody] Track updateTrack){
+        [HttpGet]
+        public List<Track> GetAllTracks(string genre, string name, int? page,string sort, int length = 2, string dir = "asc")
+        {
+            /////PAGING////////
+            IQueryable<Track> query = context.Tracks;
 
-            var track = context.Tracks.Find(updateTrack.Id);
+            if(!string.IsNullOrWhiteSpace(genre))
+            query =query.Where(d => d.genre == genre);
+            if(!string.IsNullOrWhiteSpace(name))
+            query = query.Where(d => d.track_name == name);
 
-            if(track == null)
-            return NotFound();
+            if(page.HasValue)
+                query = query.Skip(page.Value * length);
+            query = query.Take(length);
+            /////PAGING////////
 
 
-            track.track_name = updateTrack.track_name;
-            track.genre = updateTrack.genre;
-            track.track_time = updateTrack.track_time;
+            ////////SORTING/////////
+            if(!string.IsNullOrWhiteSpace(sort))
+            {
+                switch(sort)
+                {
+                    case "title":
+                        if(dir == "asc")
+                            query = query.OrderBy(d => d.track_name);
+                        else if (dir == "desc")
+                            query = query.OrderByDescending(d => d.track_name);
+                    break;
+                    
+                }
 
-            context.SaveChanges();
+            }
 
-            return Ok(track);
-            
+            return query.ToList();
+
+
         }
+
+
+        
+
+       
 
 
     }

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace Model
 {
@@ -7,9 +8,8 @@ namespace Model
     {
         public int Id { get; set; }
         public string track_name { get; set; }
-        public int track_time { get; set; }
         public string genre { get; set; }
-
+        [JsonIgnore]
 
         public ICollection<ArtistTrack> ArtistTrack {get; set;}
 

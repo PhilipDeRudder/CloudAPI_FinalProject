@@ -17,15 +17,18 @@ namespace Model
             if (!context.Albums.Any())
             {
                 //album aanmaken
-                var testAlbum = new Album()
+                var albumE1 = new Album()
                 {
-                    album_title = "TestAlbum"
+                    album_title = "Infinite",
+                    album_genre = "hip-hop",
+                    release_date = new DateTime(1996,11,12) 
+                   
+                   
                 };
-
-                //toevoegen van test album aan databank
-                context.Albums.Add(testAlbum);
-                //opslagen van de aanpassingen aan de db
-                context.SaveChanges();
+                
+               context.Albums.Add(albumE1);
+               context.SaveChanges();
+                
             }
 
                //indien er nog geen artiesten aanwezig zijn...
@@ -34,7 +37,8 @@ namespace Model
                 //album aanmaken
                 var testArtist = new Artist()
                 {
-                    artist_name = "TestArtist"
+                  
+                    artist_name = "Eminem"
                 };
 
                 //toevoegen van testartiest aan databank
@@ -49,7 +53,9 @@ namespace Model
                 //album aanmaken
                 var testTrack = new Track()
                 {
-                    track_name = "TestArtist"
+                
+                    track_name = "Infinite",
+                    genre = "hiphop"
                     
                 };
 
@@ -59,21 +65,7 @@ namespace Model
                 context.SaveChanges();
             }
 
-            if (!context.Tracks.Any())
-            {
-                //album aanmaken
-                var testTrack = new Track()
-                {
-                    track_name = "TestArtist"
-                    
-                };
-
-                //toevoegen van testartiest aan databank
-                context.Tracks.Add(testTrack);
-                //opslagen van de aanpassingen aan de db
-                context.SaveChanges();
-            }
-
+            
            
         
         }
