@@ -1,0 +1,130 @@
+<div class="row">
+  <div class="col-md-6">
+
+    <div class="card">
+      <div class="card-header">
+        Create
+      </div>
+      <div class="card-body">
+        <form [formGroup]="insertForm">
+        <table class="table table-bordered">
+          <tr>
+            <td>Name</td>
+            <td>
+              <input type="text" formControlName="Title" class="form-control" placeholder="Title">
+            </td>
+          </tr>
+          <tr>
+            <td>Email</td>
+            <td>
+                <input type="text" formControlName="Genre" class="form-control" placeholder="Genre">
+            </td>
+          </tr>
+          <tr>
+            <td>Phone</td>
+            <td> 
+                <input type="text" formControlName="Phone" class="form-control" placeholder="Phone">
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>
+                <button type="button" class="btn btn-success" (click)="Save()">Success</button>
+            </td>
+          </tr>
+        </table>
+      </form>
+      </div>
+    </div>
+
+  </div>
+  <div class="col-md-6">
+      <div class="card">
+          <div class="card-header">
+            Read
+            <button type="button" class="btn btn-warning" (click)="GetAllAlbums()">Get All Records</button>
+          </div>
+          <div class="card-body">
+              
+            <table class="table table-bordered table-hover">
+              <tr *ngFor="let rec of allAlbums">
+                <td>{{rec.AlbumID}}</td>
+                <td>{{rec.Title}}</td>
+                <td>{{rec.Genre}}</td>
+                <!-- <td>{{rec.Phone}}</td> -->
+                <td>
+                    <button type="button" class="btn btn-success btn-sm" (click)="GetSelectedAlbums(rec)">Select</button>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+    
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6">
+      <div class="card">
+          <div class="card-header">
+            Update
+          </div>
+          <div class="card-body">
+            <form [formGroup]="updateForm">
+            <table class="table table-bordered">
+              <tr>
+                <td>Name</td>
+                <td>
+                  <input type="text" formControlName="Name" class="form-control" placeholder="Name">
+                </td>
+              </tr>
+              <tr>
+                <td>Email</td>
+                <td>
+                    <input type="text" formControlName="Email" class="form-control" placeholder="Email">
+                </td>
+              </tr>
+              <tr>
+                <td>Phone</td>
+                <td> 
+                    <input type="text" formControlName="Phone" class="form-control" placeholder="Phone">
+                </td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>
+                    <button type="button" class="btn btn-info" (click)="Update()">Update</button>
+                </td>
+              </tr>
+            </table>
+          </form>
+          </div>
+        </div>
+    
+  </div>
+  <div class="col-md-6">
+      <div class="card">
+          <div class="card-header">
+            Delete
+          </div>
+          <div class="card-body">
+            <table class="table table-bordered">
+              <tr>
+                <td>Id</td>
+                <td>
+                  <input type="text" readonly [(ngModel)]="idValue" class="form-control" placeholder="Name">
+                </td>
+              </tr>
+              
+              <tr>
+                <td></td>
+                <td>
+                    <button type="button" class="btn btn-danger" (click)="Delete()">Delete</button>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+    
+  </div>
+</div>
+<router-outlet></router-outlet>

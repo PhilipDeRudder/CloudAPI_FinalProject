@@ -18,14 +18,22 @@ namespace Model
             if (!context.Artists.Any())
             {
                 //album aanmaken
-                var testArtist = new Artist()
+              
+                ICollection<Artist> ArtistList = new List<Artist>()
                 {
-                  
-                    artist_name = "Eminem"
+                  new Artist(){
+                      artist_name = "Eminem"
+
+                    },
+                  new Artist(){
+                      artist_name = "Ed Sheeran"
+                  }
+
+
                 };
 
                 //toevoegen van testartiest aan databank
-                context.Artists.Add(testArtist);
+                context.Artists.AddRange(ArtistList);
                 //opslagen van de aanpassingen aan de db
                 context.SaveChanges();
             }
@@ -122,6 +130,78 @@ namespace Model
                         ArtistId = 1
 
                     },
+
+                  new Album(){
+                      album_title = "The Orange Room - EP",
+                      album_genre="pop",
+                      release_date = new DateTime(2005, 3, 12),
+                      ArtistId = 2
+                  },
+
+                   new Album(){
+                      album_title = "Ed Sheeran - EP",
+                      album_genre="pop",
+                      release_date = new DateTime(2006, 3, 22),
+                      ArtistId = 2
+                  },
+
+                   new Album(){
+                      album_title = "Want Some? - EP",
+                      album_genre="pop",
+                      release_date = new DateTime(2007, 5, 1),
+                      ArtistId = 2
+                  },
+
+                   new Album(){
+                      album_title = "You Need Me",
+                      album_genre="pop",
+                      release_date = new DateTime(2009, 4,22),
+                      ArtistId = 2
+                  },
+
+                   new Album(){
+                      album_title = "Loose change - EP",
+                      album_genre="pop",
+                      release_date = new DateTime(2010, 7, 2),
+                      ArtistId = 2
+                  },
+
+                   new Album(){
+                      album_title = "Song I Wrote With Amy - EP",
+                      album_genre="pop",
+                      release_date = new DateTime(2010, 4, 4),
+                      ArtistId = 2
+                  },
+
+                   new Album(){
+                      album_title = "Live at the Bedford",
+                      album_genre="pop",
+                      release_date = new DateTime(2011, 12, 12),
+                      ArtistId = 2
+                  },
+
+                   new Album(){
+                      album_title = "Thank you",
+                      album_genre="pop",
+                      release_date = new DateTime(2011, 8, 18),
+                      ArtistId = 2
+                  },
+
+                   new Album(){
+                      album_title = "You Need Me, I Don't Need You",
+                      album_genre="pop",
+                      release_date = new DateTime(2011, 8, 26),
+                      ArtistId = 2
+                  },
+
+                   new Album(){
+                      album_title = "One Take - EP",
+                      album_genre="pop",
+                      release_date = new DateTime(2011, 4 ,7),
+                      ArtistId = 2
+                  },
+
+                    
                 };
 
 
