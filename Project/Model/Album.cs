@@ -11,15 +11,14 @@ namespace Model
         public int AlbumId { get; set; }
 
         /////MODEL VALIDATION/////////
-        [Required]
-        [StringLength(160, MinimumLength = 2)]
-        public string album_title { get; set; }
-        public string album_genre { get; set; } 
+      //  [Required]
+       // [StringLength(160, MinimumLength = 2)]
+        public string Title { get; set; }
+        public string Genre { get; set; } 
         public int ArtistId{get;set;}
         
-        public DateTime release_date {get;set;}
+       // public DateTime release_date {get;set;}
          [JsonIgnore]
-
          public Artist Artist { get; set; }
 
      

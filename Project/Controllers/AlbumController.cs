@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using System.Reflection.Metadata;
 using System;
 using System.Collections.Generic;
@@ -21,11 +22,13 @@ namespace Controllers
         }
 
         //Alle Gegevens opvragen (SELECT/READ)
+        /*
         [HttpGet]
         public List<Album> GetAllAlbums()
         {
             return context.Albums.ToList();
         }
+        */
 
         //nieuw album aanmaken(CREATE)
         [HttpPost]
@@ -34,6 +37,7 @@ namespace Controllers
             context.Albums.Add(newAlbum);
             context.SaveChanges();
             return Created("", newAlbum);
+            
         }
 
 
@@ -64,23 +68,25 @@ namespace Controllers
             if(orgAlb == null)
                 return NotFound();
             
-            orgAlb.album_title = updateAlbum.album_title;
-            orgAlb.album_genre = updateAlbum.album_genre;
+            orgAlb.Title = updateAlbum.Title;
+            orgAlb.Genre = updateAlbum.Genre;
             context.SaveChanges();
             return Ok(orgAlb);
         
 
         }       
 
-         [HttpGet]
-        public List<Album> GetAllAlbums(string genre, string title, DateTime releasedate, int? page,string sort, int length = 2, string dir = "asc")
+        
+        
+        [HttpGet]
+        public List<Album> GetAllAlbums(string genre, string title, int? page,string sort, int length = 100, string dir = "asc")
         {
             IQueryable<Album> query = context.Albums;
             /////////PAGING///////////////
             if (!string.IsNullOrWhiteSpace(genre))
-                query = query.Where(d => d.album_genre == genre);
+                query = query.Where(d => d.Genre == genre);
             if (!string.IsNullOrWhiteSpace(title))
-                query = query.Where(d => d.album_title == title);
+                query = query.Where(d => d.Genre == title);
 
             if(page.HasValue)
                 query = query.Skip(page.Value * length);
@@ -95,25 +101,20 @@ namespace Controllers
                 {
                     case "genre":
                         if(dir == "asc")
-                            query = query.OrderBy(d =>d.album_genre);
+                            query = query.OrderBy(d =>d.Genre);
                         else if(dir == "desc")
-                            query = query.OrderByDescending(d => d.album_genre);
+                            query = query.OrderByDescending(d => d.Genre);
                         
                     break;
 
                     case "title":
                         if(dir =="asc")
-                            query = query.OrderBy(d => d.album_title);
+                            query = query.OrderBy(d => d.Title);
                         else if(dir == "desc")
-                            query = query.OrderByDescending(d => d.album_title);
+                            query = query.OrderByDescending(d => d.Title);
                     break;
 
-                    case "releasedate":
-                        if(dir =="asc")
-                            query = query.OrderBy(d => d.release_date.Year);
-                        else if(dir =="desc")
-                            query = query.OrderByDescending(d => d.release_date.Year);
-                    break;
+                    
                 }
 
 
@@ -125,6 +126,8 @@ namespace Controllers
           
 
         }
+        
+    
 
 
 

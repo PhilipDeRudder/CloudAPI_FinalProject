@@ -45,159 +45,159 @@ namespace Model
 
                 ICollection<Album> AlbumList = new List<Album>(){
                     new Album(){
-                    album_title = "Infinite",
-                    album_genre = "hip-hop",
-                    release_date = new DateTime(1996,11,12),
+                    Title = "Infinite",
+                    Genre = "hip-hop",
+                  //  release_date = new DateTime(1996,11,12),
                     ArtistId = 1
                     },
 
                     new Album(){
-                        album_title = "Slim Shady EP",
-                        album_genre = "hip-hop",
-                        release_date = new DateTime(1997, 12, 16),
+                        Title = "Slim Shady EP",
+                        Genre = "hip-hop",
+                    //    release_date = new DateTime(1997, 12, 16),
                         ArtistId = 1
 
                     },
 
                      new Album(){
-                        album_title = "The Slim Shady LP",
-                        album_genre = "hip-hop",
-                        release_date = new DateTime(1999, 2, 22),
+                        Title = "The Slim Shady LP",
+                        Genre = "hip-hop",
+                      //  release_date = new DateTime(1999, 2, 22),
                         ArtistId = 1
 
                     },
                     //datums
 
                      new Album(){
-                        album_title = "The Marshal Mathers LP",
-                        album_genre = "hip-hop",
-                        release_date = new DateTime(2000, 5, 23),
+                        Title = "The Marshal Mathers LP",
+                        Genre = "hip-hop",
+                      //  release_date = new DateTime(2000, 5, 23),
                         ArtistId = 1
 
                     },
 
                       new Album(){
-                        album_title = "The Marshal Mathers LP-Tour edition",
-                        album_genre = "hip-hop",
-                        release_date = new DateTime(2002, 1, 1),
+                        Title = "The Marshal Mathers LP-Tour edition",
+                        Genre = "hip-hop",
+                       // release_date = new DateTime(2002, 1, 1),
                         ArtistId = 1
 
                     },
                     
                       new Album(){
-                        album_title = "The Eminem Show",
-                        album_genre = "hip-hop",
-                        release_date = new DateTime(2002, 5, 26),
+                        Title = "The Eminem Show",
+                        Genre = "hip-hop",
+                       // release_date = new DateTime(2002, 5, 26),
                         ArtistId = 1
 
                     },
 
                     new Album(){
-                        album_title = "The Singles",
-                        album_genre = "hip-hop",
-                        release_date = new DateTime(2003, 12, 23),
+                        Title = "The Singles",
+                        Genre = "hip-hop",
+                       // release_date = new DateTime(2003, 12, 23),
                         ArtistId = 1
 
                     },
 
                   new Album(){
-                        album_title = "Encore",
-                        album_genre = "hip-hop",
-                        release_date = new DateTime(2004, 11, 12),
+                        Title = "Encore",
+                        Genre = "hip-hop",
+                       // release_date = new DateTime(2004, 11, 12),
                         ArtistId = 1
 
                     },
                   new Album(){
-                        album_title = "Curtain Call",
-                        album_genre = "hip-hop",
-                        release_date = new DateTime(2005, 12, 6),
-                        ArtistId = 1
-
-                    },
-
-                  new Album(){
-                        album_title = "Relapse",
-                        album_genre = "hip-hop",
-                        release_date = new DateTime(2009, 5, 15),
+                        Title = "Curtain Call",
+                        Genre = "hip-hop",
+                       // release_date = new DateTime(2005, 12, 6),
                         ArtistId = 1
 
                     },
 
                   new Album(){
-                        album_title = "Recovery",
-                        album_genre = "hip-hop",
-                        release_date = new DateTime(2010, 6, 18),
+                        Title = "Relapse",
+                        Genre = "hip-hop",
+                       // release_date = new DateTime(2009, 5, 15),
                         ArtistId = 1
 
                     },
 
                   new Album(){
-                      album_title = "The Orange Room - EP",
-                      album_genre="pop",
-                      release_date = new DateTime(2005, 3, 12),
+                        Title = "Recovery",
+                        Genre = "hip-hop",
+                       // release_date = new DateTime(2010, 6, 18),
+                        ArtistId = 1
+
+                    },
+
+                  new Album(){
+                      Title = "The Orange Room - EP",
+                      Genre="pop",
+                     // release_date = new DateTime(2005, 3, 12),
                       ArtistId = 2
                   },
 
                    new Album(){
-                      album_title = "Ed Sheeran - EP",
-                      album_genre="pop",
-                      release_date = new DateTime(2006, 3, 22),
+                      Title = "Ed Sheeran - EP",
+                      Genre="pop",
+                    //  release_date = new DateTime(2006, 3, 22),
                       ArtistId = 2
                   },
 
                    new Album(){
-                      album_title = "Want Some? - EP",
-                      album_genre="pop",
-                      release_date = new DateTime(2007, 5, 1),
+                      Title = "Want Some? - EP",
+                      Genre="pop",
+                     // release_date = new DateTime(2007, 5, 1),
                       ArtistId = 2
                   },
 
                    new Album(){
-                      album_title = "You Need Me",
-                      album_genre="pop",
-                      release_date = new DateTime(2009, 4,22),
+                      Title = "You Need Me",
+                      Genre="pop",
+                    //  release_date = new DateTime(2009, 4,22),
                       ArtistId = 2
                   },
 
                    new Album(){
-                      album_title = "Loose change - EP",
-                      album_genre="pop",
-                      release_date = new DateTime(2010, 7, 2),
+                      Title = "Loose change - EP",
+                      Genre="pop",
+                    //  release_date = new DateTime(2010, 7, 2),
                       ArtistId = 2
                   },
 
                    new Album(){
-                      album_title = "Song I Wrote With Amy - EP",
-                      album_genre="pop",
-                      release_date = new DateTime(2010, 4, 4),
+                      Title = "Song I Wrote With Amy - EP",
+                      Genre="pop",
+                     // release_date = new DateTime(2010, 4, 4),
                       ArtistId = 2
                   },
 
                    new Album(){
-                      album_title = "Live at the Bedford",
-                      album_genre="pop",
-                      release_date = new DateTime(2011, 12, 12),
+                      Title = "Live at the Bedford",
+                      Genre="pop",
+                    //  release_date = new DateTime(2011, 12, 12),
                       ArtistId = 2
                   },
 
                    new Album(){
-                      album_title = "Thank you",
-                      album_genre="pop",
-                      release_date = new DateTime(2011, 8, 18),
+                      Title = "Thank you",
+                      Genre="pop",
+                     // release_date = new DateTime(2011, 8, 18),
                       ArtistId = 2
                   },
 
                    new Album(){
-                      album_title = "You Need Me, I Don't Need You",
-                      album_genre="pop",
-                      release_date = new DateTime(2011, 8, 26),
+                      Title = "You Need Me, I Don't Need You",
+                      Genre="pop",
+                     // release_date = new DateTime(2011, 8, 26),
                       ArtistId = 2
                   },
 
                    new Album(){
-                      album_title = "One Take - EP",
-                      album_genre="pop",
-                      release_date = new DateTime(2011, 4 ,7),
+                      Title = "One Take - EP",
+                      Genre="pop",
+                     // release_date = new DateTime(2011, 4 ,7),
                       ArtistId = 2
                   },
 
