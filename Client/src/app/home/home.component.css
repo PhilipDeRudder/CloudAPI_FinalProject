@@ -6,3 +6,5 @@
     .table-wrapper-scroll-y {
     display: block;
     }
+
+@import 'bootstrap/dist/css/bootstrap.css';

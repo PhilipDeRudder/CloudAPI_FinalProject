@@ -11,30 +11,60 @@ import { JsonPipe } from '@angular/common';
 
 
 
+
 @Injectable({
   providedIn: 'root'
 })
 export class ClientService {
-  public apiUrl = 'https://localhost:5001/api/v1/albums';
+  public apiUrl = 'https://localhost:5001/api/v1/';
 
 
 
 
-  constructor( private httpclnt: HttpClient) {
-  }
+  constructor( private httpclnt: HttpClient) {}
 
   getAlbums() {
-    return this.httpclnt.get<Album[]>(this.apiUrl);
+    return this.httpclnt.get<Album[]>(this.apiUrl + 'albums');
 
+
+  }
+
+  getAlbumsPaging(page: number) {
+    return this.httpclnt.get<Album[]>(this.apiUrl + 'albums?page=' + page + '&length=10');
+    // https://localhost:5001/api/v1/albums?page=2&length=2
+  }
+
+  getAlbumsSorting(sort: string, dir: string) {
+    return this.httpclnt.get<Album[]>(this.apiUrl + 'albums?sort=' + sort + '&dir=' + dir);
+      // https://localhost:5001/api/v1/books?sort=title&dir=desc
 
   }
 
   postAlbum = function(bgenre: string, btitle: string, bid: number ) {
 
-    return this.httpclnt.post(this.apiUrl, {
+    return this.httpclnt.post(this.apiUrl  + 'albums', {
       title:  btitle,
       genre: bgenre,
       artistId: bid} ).subscribe();
+
+  };
+
+  updateAlbum = function(bgenre: string, btitle: string, bArtist: number, bAlbum: number ) {
+
+    return this.httpclnt.put(this.apiUrl + 'albums', {
+      title:  btitle,
+      genre: bgenre,
+      albumId: 33} ).subscribe();
+
+  };
+
+
+  deleteAlbum(Bid: number) {
+
+
+    const deleteUrl = this.apiUrl  + 'albums' + '/' + Bid;
+    console.log(deleteUrl);
+    return this.httpclnt.delete(deleteUrl).subscribe();
   }
 
 
@@ -47,4 +77,5 @@ export interface Album {
     title: string;
     genre: string;
 }
+
 

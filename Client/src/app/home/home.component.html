@@ -1,3 +1,11 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <body>
+
 <h1>Albums page</h1>
 
 <div class="row">
@@ -83,25 +91,32 @@
               <tr>
                 <td>Title</td>
                 <td>
-                  <input type="text"  class="form-control" placeholder="title">
+                  <input type="text" #title  class="form-control" placeholder="title">
                 </td>
               </tr>
               <tr>
                 <td>Genre</td>
                 <td>
-                    <input type="text"  class="form-control" placeholder="genre">
+                    <input type="text" #genre class="form-control" placeholder="genre">
                 </td>
               </tr>
               <tr>
-                <td>Phone</td>
+                <td>Album Id</td>
                 <td> 
-                    <input type="number"  class="form-control" placeholder="Phone">
+                    <input type="number" #albumid class="form-control" placeholder="albumId">
                 </td>
               </tr>
               <tr>
+                <tr>
+                  <td>ArtistId</td>
+                  <td> 
+                      <input type="number" #artistid class="form-control" placeholder="Artist Id">
+                  </td>
+                </tr>
+                <tr>
                 <td></td>
                 <td>
-                    <button type="button" class="btn btn-info">Update method</button>
+                    <button type="button" (click) = "UpdateAlbum(title.value, genre.value ,artistid.value, artistid.value)" class="btn btn-info">Update method</button>
                 </td>
               </tr>
             </table>
@@ -120,14 +135,14 @@
               <tr>
                 <td>Id</td>
                 <td>
-                  <input type="text" readonly  class="form-control" placeholder="Name">
+                  <input type="number"  class="form-control"  #albumId placeholder="artistId"  placeholder="Album Id">
                 </td>
               </tr>
               
               <tr>
                 <td></td>
                 <td>
-                    <button type="button" class="btn btn-danger" >Delete method</button>
+                    <button type="button" class="btn btn-danger" (click)= "DeleteAlbum(albumId.value)" >Delete Album</button>
                 </td>
               </tr>
             </table>
@@ -136,5 +151,56 @@
     
   </div>
 </div>
+<!--paging test-->
+<div class="col-md-6">
+  <div class="card">
+      <div class="card-header">
+        Read
+        
+      </div>
+        
+      <div >
+        <button type="button"  class="btn btn-warning" (click)="GetAlbumsPaging(0)">Get Albums</button>
+        
+        <table class="table table-bordered table-striped mb-0">
+          <tr>
+            <th (click)="GetAlbumsPaging(3)" scope="col">Album Name</th>
+            <th scope="col">Genre </th>
+            <th scope="col">Id number</th>
+            <th scope="col">Artist Id</th>
+          </tr>
+          <tr *ngFor="let rec of Albums$">
+
+            <td>{{rec.title}}</td>
+            <td>{{rec.genre}}</td>
+            <td>{{rec.albumId}}</td>
+            <td>{{rec.artistId}}</td>
+            <td>
+            </td>
+          </tr>
+        </table>
+        
+      </div>
+     
+      <button type="button" [disabled]="isNextValid()" class="btn btn-warning" (click)="GetAlbumsPaging(1); ">NEXT</button>
+      <button type="button" [disabled]="isPreviousValid()" class="btn btn-warning" (click)="GetAlbumsPaging(2)">BACK</button>
+
+    </div>
+
+</div>
+
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Dropdown button
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="#">Action</a>
+    <a class="dropdown-item" href="#">Another action</a>
+    <a class="dropdown-item" href="#">Something else here</a>
+  </div>
+</div>
+</body>
+</html>
+<!---->
 
 <router-outlet></router-outlet>

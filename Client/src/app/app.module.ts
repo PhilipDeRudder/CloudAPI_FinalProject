@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { JwPaginationComponent } from 'jw-angular-pagination';
+import { NgxPaginationModule } from 'ngx-pagination';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -16,7 +17,8 @@ import { FormsModule, ReactiveFormsModule, Validator, FormControl, FormGroup, Fo
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+
   ],
   imports: [
 
@@ -24,7 +26,9 @@ import { FormsModule, ReactiveFormsModule, Validator, FormControl, FormGroup, Fo
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxPaginationModule
+
 
   ],
   providers: [],

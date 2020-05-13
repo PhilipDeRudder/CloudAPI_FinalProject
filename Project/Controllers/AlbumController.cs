@@ -44,7 +44,7 @@ namespace Controllers
        
 
         //Album verwijderen (DELETE)
-        [Route("id")]
+        [Route("{id}")]
         [HttpDelete]
         public IActionResult deleteAlbum(int id)
         {
@@ -56,6 +56,8 @@ namespace Controllers
             context.SaveChanges();
             return NoContent();    
         
+
+
         }
 
         //todo: zien dat de track ook aangepast worden.
@@ -64,6 +66,8 @@ namespace Controllers
         [HttpPut]
         public IActionResult updateAlbum([FromBody] Album updateAlbum)
         {
+            
+
             var orgAlb = context.Albums.Find(updateAlbum.AlbumId);
             if(orgAlb == null)
                 return NotFound();
@@ -77,6 +81,8 @@ namespace Controllers
         }       
 
         
+
+
         
         [HttpGet]
         public List<Album> GetAllAlbums(string genre, string title, int? page,string sort, int length = 100, string dir = "asc")
