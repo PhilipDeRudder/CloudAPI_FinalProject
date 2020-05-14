@@ -20,12 +20,18 @@ namespace Controllers
             this.context = context;
         }
 
+
+        //api/v1/artists
         //Alle artiesten opvragen (SELECT/READ)
         [HttpGet]
         public List<Artist> GetAllArtist()
         {
             return context.Artists.ToList();
         }
+ 
+        
+
+        /*
 
         //artist opvragen adhv naam 
         [HttpGet]
@@ -34,11 +40,11 @@ namespace Controllers
             IQueryable<Artist> query = context.Artists;
 
             if(!string.IsNullOrWhiteSpace(name))
-                query = query.Where(d => d.artist_name == name);
+                query = query.Where(d => d.artistname == name);
             
             return Ok(query);
         }
-
+      
        
 
 
@@ -94,19 +100,13 @@ namespace Controllers
                 if(orgArtist == null)
                     return NotFound();
 
-                orgArtist.artist_name = updateArtist.artist_name;
+                orgArtist.artistname = updateArtist.artistname;
                 
 
                 context.SaveChanges();
                 return Ok(orgArtist);
         }
-
-
-
-
-
-
        
-        
+          */
     }
 }

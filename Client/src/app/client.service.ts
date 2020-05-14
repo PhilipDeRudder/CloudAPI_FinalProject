@@ -23,6 +23,8 @@ export class ClientService {
 
   constructor( private httpclnt: HttpClient) {}
 
+
+  ///////////////////////////// ALBUM ////////////////////////////////////////////
   getAlbums() {
     return this.httpclnt.get<Album[]>(this.apiUrl + 'albums');
 
@@ -66,8 +68,17 @@ export class ClientService {
     console.log(deleteUrl);
     return this.httpclnt.delete(deleteUrl).subscribe();
   }
+  ///////////////////////////// ALBUM ////////////////////////////////////////////
+
+  ///////////////////////////// ARTIST //////////////////////////////////////////
+
+  getAllArtist() {
+    return this.httpclnt.get<Artist[]>(this.apiUrl + 'artists');
+
+  }
 
 
+    ///////////////////////////// ARTIST //////////////////////////////////////////
 
 }
 
@@ -76,6 +87,12 @@ export interface Album {
     artistId: number;
     title: string;
     genre: string;
+}
+
+export interface Artist {
+  artistid: number;
+  artistname: string;
+
 }
 
 

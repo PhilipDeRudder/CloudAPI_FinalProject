@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ClientService, Album } from '../client.service';
+import { ClientService, Album, Artist } from '../client.service';
 import { FormsModule, ReactiveFormsModule, Validator, FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
@@ -15,6 +15,8 @@ export class HomeComponent implements OnInit {
 
   public apiUrl = 'https://localhost:5001/api/v1/albums';
   Albums$: Album[];
+  Artist$: Artist[];
+  selectedArtist;
   data: Array<any>;
   totalRecords: number;
   page = 0;
@@ -31,10 +33,9 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
   }
 
+  ///////////////////////////// ALBUM ////////////////////////////////////////////
 
   GetAllAlbums() {
-
-
         return this.cliService.getAlbums()
         .subscribe(data => this.Albums$ = data);
 
@@ -82,6 +83,8 @@ export class HomeComponent implements OnInit {
 
     // https://localhost:5001/api/v1/albums?page=2&length=2
     // https://localhost:5001/api/v1/books?sort=title&dir=desc
+    // https://localhost:5001/api/v1/albums?page=2&length=2&sort=title&dir=desc
+
   }
 
 
@@ -97,6 +100,26 @@ export class HomeComponent implements OnInit {
   UpdateAlbum(Btitle: string, Bgenre: string , Bartistid: number, BalbumId: number) {
     return this.cliService.updateAlbum(Bgenre, Btitle, Bartistid, BalbumId);
   }
+  ///////////////////////////// ALBUM ////////////////////////////////////////////
+
+  ///////////////////////////// ARTIST ////////////////////////////////////////////
+  GetAllArtists() {
+    return this.cliService.getAllArtist()
+    .subscribe(data => this.Artist$ = data);
+}
+
+GetSelectedArtist(event: any) {
+  console.log();
+  return this.cliService.getAllArtist().subscribe(data => this.Artist$ = data);
+
+
+}
+
+
+  ///////////////////////////// ARTIST ////////////////////////////////////////////
+
+
+  /////////////// OTHERSTUFF //////////////////
 
   isNextValid() {
     if (this.selectedAlbum > this.Albums$.length) {
@@ -109,12 +132,9 @@ export class HomeComponent implements OnInit {
   isPreviousValid() {
     if (this.selectedAlbum <= 0) {
         return true;
-    } else if(this.selectedAlbum >= 10) {
+    } else if (this.selectedAlbum >= 10) {
         return false;
     }
+  }
+/////////////// OTHERSTUFF //////////////////
 }
-
-
-}
-
-

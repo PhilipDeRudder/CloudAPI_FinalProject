@@ -22,11 +22,11 @@ namespace Model
                 ICollection<Artist> ArtistList = new List<Artist>()
                 {
                   new Artist(){
-                      artist_name = "Eminem"
+                      artistname = "Eminem"
 
                     },
                   new Artist(){
-                      artist_name = "Ed Sheeran"
+                      artistname = "Ed Sheeran"
                   }
 
 

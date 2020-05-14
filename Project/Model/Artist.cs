@@ -11,7 +11,7 @@ namespace Model
 
          /////MODEL VALIDATION/////////
         [Required]
-        public string artist_name { get; set; }
+        public string artistname { get; set; }
         [JsonIgnore]
 
         public ICollection<Album> Albums {get; set;}
