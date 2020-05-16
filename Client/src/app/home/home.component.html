@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -16,39 +18,37 @@
         Create
       </div>
       <div class="card-body">
-        <form >
+        <form>
         <table class="table table-bordered">
           <tr>
             <td>Title</td>
             <td>
-              <input class="form-control" type="text"  #title  placeholder="title">
+              <input #title class="form-control" type="text" placeholder="title">
             </td>
           </tr>
           <tr>
             <td>Genre</td>
             <td>
-                <input class="form-control" type="text" #genre placeholder="genre">
+                <input #genre type="text" class="form-control" type="text"  placeholder="genre">
             </td>
           </tr>
           <tr>
             <td>ArtistID</td>
             <td> 
-                <input class="form-control" type="text" #artistid placeholder="artistId">
+                <input class="form-control" type="number" #artistid placeholder="artistId">
             </td>
           </tr>
           <tr>
-            <td></td>
             <td>
-                <button class="btn btn-success"  (click) = "PostAlbum(title.value, genre.value ,artistid.value)" >Add Album</button>
-              
+                <button class="btn btn-success"  (click)="PostAlbum(title.value,genre.value ,artistid.value)" >Add Album</button>
             </td>
           </tr>
         </table>
       </form>
       </div>
     </div>
-
   </div>
+
   <div class="col-md-6">
       <div class="card">
           <div class="card-header">
@@ -91,32 +91,26 @@
               <tr>
                 <td>Title</td>
                 <td>
-                  <input type="text" #title  class="form-control" placeholder="title">
+                  <input type="text" #utitle  class="form-control" placeholder="title">
                 </td>
               </tr>
               <tr>
                 <td>Genre</td>
                 <td>
-                    <input type="text" #genre class="form-control" placeholder="genre">
+                    <input type="text" #ugenre  class="form-control" placeholder="genre">
                 </td>
               </tr>
               <tr>
                 <td>Album Id</td>
                 <td> 
-                    <input type="number" #albumid class="form-control" placeholder="albumId">
+                    <input type="number" #ualbumid class="form-control" placeholder="albumId">
                 </td>
               </tr>
               <tr>
                 <tr>
-                  <td>ArtistId</td>
-                  <td> 
-                      <input type="number" #artistid class="form-control" placeholder="Artist Id">
-                  </td>
-                </tr>
-                <tr>
                 <td></td>
                 <td>
-                    <button type="button" (click) = "UpdateAlbum(title.value, genre.value ,artistid.value, artistid.value)" class="btn btn-info">Update method</button>
+                    <button type="button" (click)="UpdateAlbum(utitle.value, ugenre.value , ualbumid.value)" class="btn btn-info">Update method</button>
                 </td>
               </tr>
             </table>
@@ -135,7 +129,7 @@
               <tr>
                 <td>Id</td>
                 <td>
-                  <input type="number"  class="form-control"  #albumId placeholder="artistId"  placeholder="Album Id">
+                  <input type="number"  class="form-control"  #albumId  placeholder="Album Id">
                 </td>
               </tr>
               
@@ -209,8 +203,5 @@ Select Album :
   
 </div>  
 </div>
-</body>
-</html>
-<!---->
 
 <router-outlet></router-outlet>

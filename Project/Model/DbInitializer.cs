@@ -27,7 +27,18 @@ namespace Model
                     },
                   new Artist(){
                       artistname = "Ed Sheeran"
-                  }
+                  },
+                  new Artist(){
+                    artistname=" "
+                  },
+                     new Artist(){
+                    artistname=" "
+                  },
+
+                     new Artist(){
+                    artistname=" "
+                  },
+
 
 
                 };
@@ -215,7 +226,7 @@ namespace Model
 
            
 
-                 //indien er nog geen artiesten aanwezig zijn...
+                 //indien er nog geen tracks aanwezig zijn...
             if (!context.Tracks.Any())
             {
                 //album aanmaken

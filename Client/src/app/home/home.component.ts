@@ -25,9 +25,11 @@ export class HomeComponent implements OnInit {
   choise: string;
   sort: string;
   public selectedAlbum = 0;
-  cAlbumName: string;
-  cGenreAlbum: string;
-  cArtistId: number;
+  id: number;
+  ualbid: number;
+
+
+
 
   constructor( private cliService: ClientService, private http: HttpClient ) { }
 
@@ -37,6 +39,7 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.cliService.getAllArtist()
         .subscribe(data => this.Artist$ = data);
+
   }
 
   ///////////////////////////// ALBUM ////////////////////////////////////////////
@@ -100,9 +103,9 @@ export class HomeComponent implements OnInit {
   }
 
 
-  PostAlbum(Btitle: string, Bgenre: string , Bartistid: number) {
-    console.log(this.cAlbumName);
-    return this.cliService.postAlbum(Bgenre, Btitle, Bartistid);
+  PostAlbum(title: any, Bgenre: string , Bartistid: number) {
+    this.id = Bartistid;
+    return this.cliService.postAlbum(Bgenre, title, Bartistid);
     }
 
 
@@ -110,8 +113,10 @@ export class HomeComponent implements OnInit {
     return this.cliService.deleteAlbum(Bdelete);
   }
 
-  UpdateAlbum(Btitle: string, Bgenre: string , Bartistid: number, BalbumId: number) {
-    return this.cliService.updateAlbum(Bgenre, Btitle, Bartistid, BalbumId);
+  UpdateAlbum(Btitle: string, Bgenre: string , BalbumId: number) {
+    this.ualbid = BalbumId;
+    console.log(this.ualbid);
+    return this.cliService.updateAlbum(Bgenre, Btitle, BalbumId);
   }
   ///////////////////////////// ALBUM ////////////////////////////////////////////
 

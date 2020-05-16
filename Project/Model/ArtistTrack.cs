@@ -11,6 +11,9 @@ namespace Model
         public int ArtistId { get; set; }
         public int TrackId { get; set; }
 
+         public Artist Artist { get; set; }
+         public Track Track {get; set;}
+
      
 
 

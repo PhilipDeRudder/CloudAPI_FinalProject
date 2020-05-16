@@ -66,18 +66,16 @@ namespace Controllers
         [HttpPut]
         public IActionResult updateAlbum([FromBody] Album updateAlbum)
         {
-            
-
             var orgAlb = context.Albums.Find(updateAlbum.AlbumId);
-            if(orgAlb == null)
+            if(orgAlb == null){
                 return NotFound();
+            }
             
             orgAlb.Title = updateAlbum.Title;
             orgAlb.Genre = updateAlbum.Genre;
             context.SaveChanges();
             return Ok(orgAlb);
         
-
         }       
 
         
