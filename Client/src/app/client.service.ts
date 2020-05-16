@@ -31,6 +31,11 @@ export class ClientService {
 
   }
 
+  getAlbumsByArtistId(artistId: number) {
+    return this.httpclnt.get<Album[]>(this.apiUrl + 'albums/' + artistId);
+  }
+
+  ////////// COMBINE //////////////
   getAlbumsPaging(page: number) {
     return this.httpclnt.get<Album[]>(this.apiUrl + 'albums?page=' + page + '&length=10');
     // https://localhost:5001/api/v1/albums?page=2&length=2
@@ -42,7 +47,9 @@ export class ClientService {
 
   }
 
-  postAlbum = function(bgenre: string, btitle: string, bid: number ) {
+  /////////////////////////////
+
+  postAlbum = function(btitle: string, bgenre: string, bid: number ) {
 
     return this.httpclnt.post(this.apiUrl  + 'albums', {
       title:  btitle,
@@ -90,7 +97,7 @@ export interface Album {
 }
 
 export interface Artist {
-  artistid: number;
+  id: number;
   artistname: string;
 
 }

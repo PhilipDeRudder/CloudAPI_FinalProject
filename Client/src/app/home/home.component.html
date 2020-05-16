@@ -191,19 +191,21 @@
 
 <div>
 
+  <div>
+    <h1>Selecte an artist --> gives his albums --> selecte Album --> gives Album Tracks</h1>
 <div>
   Select Artist :  
-<select (click)="GetAllArtists($event)" (change)="GetSelectedArtist($event)">  
-        <option *ngFor="let alb of Artist$">{{alb.artistname}} </option>  
+<select [(ngModel)] ="selectedArtist" (change)="GetSelectedArtist()">  
+        <option *ngFor="let alb of Artist$" [ngValue]="alb.id"> {{alb.id}} {{alb.artistname}} </option>  
 </select> 
 
 Select Album :  
-<select (click)="GetAllAlbums()">  
-        <option *ngFor="let alb of Albums$">{{alb.title}} </option>  
+<select (click)="GeAlbumByArtistId()">  
+        <option *ngFor="let alb of AlbumsSelected$">{{alb.title}} </option>  
 </select> 
 </div>
 
-<div>
+
   
 </div>  
 </div>

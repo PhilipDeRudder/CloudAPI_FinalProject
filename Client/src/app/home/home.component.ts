@@ -16,6 +16,7 @@ export class HomeComponent implements OnInit {
   public apiUrl = 'https://localhost:5001/api/v1/albums';
   Albums$: Album[];
   Artist$: Artist[];
+  AlbumsSelected$: Album[];
   selectedArtist;
   data: Array<any>;
   totalRecords: number;
@@ -24,6 +25,9 @@ export class HomeComponent implements OnInit {
   choise: string;
   sort: string;
   public selectedAlbum = 0;
+  cAlbumName: string;
+  cGenreAlbum: string;
+  cArtistId: number;
 
   constructor( private cliService: ClientService, private http: HttpClient ) { }
 
@@ -31,6 +35,8 @@ export class HomeComponent implements OnInit {
 
 
   ngOnInit() {
+    this.cliService.getAllArtist()
+        .subscribe(data => this.Artist$ = data);
   }
 
   ///////////////////////////// ALBUM ////////////////////////////////////////////
@@ -38,6 +44,12 @@ export class HomeComponent implements OnInit {
   GetAllAlbums() {
         return this.cliService.getAlbums()
         .subscribe(data => this.Albums$ = data);
+
+  }
+
+  GeAlbumByArtistId() {
+    return this.cliService.getAlbumsByArtistId(this.selectedArtist)
+    .subscribe(data => this.AlbumsSelected$ = data);
 
   }
 
@@ -89,7 +101,8 @@ export class HomeComponent implements OnInit {
 
 
   PostAlbum(Btitle: string, Bgenre: string , Bartistid: number) {
-      return this.cliService.postAlbum(Bgenre, Btitle, Bartistid);
+    console.log(this.cAlbumName);
+    return this.cliService.postAlbum(Bgenre, Btitle, Bartistid);
     }
 
 
@@ -108,8 +121,8 @@ export class HomeComponent implements OnInit {
     .subscribe(data => this.Artist$ = data);
 }
 
-GetSelectedArtist(event: any) {
-  console.log();
+GetSelectedArtist() {
+  console.log(this.selectedArtist);
   return this.cliService.getAllArtist().subscribe(data => this.Artist$ = data);
 
 
