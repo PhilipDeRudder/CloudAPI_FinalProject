@@ -132,21 +132,23 @@ namespace Controllers
         }
         
     
+       
+
+
         //Object opvragen adhv ID + relaties mee ophalen
         [Route("{id}")]
         [HttpGet]
-        public IActionResult GetAlbumsByArtistId(int artistid)
+        public IActionResult GetAlbumsByAlbumId(int id =1)
         {
-            var albums = context.Albums
-                                .Include(d => d.ArtistId)
-                                .SingleOrDefault(d => d.ArtistId == artistid);
-            if(albums == null)
+            var album = context.Albums.Find(id);
+            if(album == null)
                 return NotFound();
 
-            return Ok(albums);
+
+
+
+            return Ok(album);
         }
-
-
 
 
 

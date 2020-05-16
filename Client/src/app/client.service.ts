@@ -31,6 +31,10 @@ export class ClientService {
 
   }
 
+  getAlbumById(id: number) {
+    return this.httpclnt.get<Album>(this.apiUrl + 'albums/' + id );
+  }
+
   getAlbumsByArtistId(artistId: number) {
     return this.httpclnt.get<Album[]>(this.apiUrl + 'albums/' + artistId);
   }

@@ -69,9 +69,6 @@
                 <td>{{rec.genre}}</td>
                 <td>{{rec.albumId}}</td>
                 <td>{{rec.artistId}}</td>
-                <td>
-                    <button type="button" class="btn btn-success btn-sm" >get selected method</button>
-                </td>
               </tr>
             </table>
           </div>
@@ -152,7 +149,6 @@
         Read
         
       </div>
-        
       <div >
         <button type="button"  class="btn btn-warning" (click)="GetAlbumsPaging(0)">Get Albums</button>
         
@@ -170,6 +166,7 @@
             <td>{{rec.albumId}}</td>
             <td>{{rec.artistId}}</td>
             <td>
+              <button type="button" class="btn btn-warning" (click)="GetAlbumById(rec.albumId)">get selected</button>
             </td>
           </tr>
         </table>
@@ -182,7 +179,11 @@
     </div>
 
 </div>
-
+<h1> Result get selected from table</h1>
+<p>album id :  {{AlbumSelectedById$.albumId}}</p>
+<p>album genre : {{AlbumSelectedById$.genre}}</p>
+<p>album title: {{AlbumSelectedById$.title}}</p>
+<p> album artist {{AlbumSelectedById$.artistId}}</p>
 <div>
 
   <div>

@@ -17,6 +17,7 @@ export class HomeComponent implements OnInit {
   Albums$: Album[];
   Artist$: Artist[];
   AlbumsSelected$: Album[];
+  AlbumSelectedById$: Album;
   selectedArtist;
   data: Array<any>;
   totalRecords: number;
@@ -48,6 +49,11 @@ export class HomeComponent implements OnInit {
         return this.cliService.getAlbums()
         .subscribe(data => this.Albums$ = data);
 
+  }
+
+  GetAlbumById(albumid: number) {
+    console.log(albumid);
+    return this.cliService.getAlbumById(albumid).subscribe(data => this.AlbumSelectedById$ = data);
   }
 
   GeAlbumByArtistId() {
