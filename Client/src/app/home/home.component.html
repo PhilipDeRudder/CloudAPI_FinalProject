@@ -166,7 +166,7 @@
             <td>{{rec.albumId}}</td>
             <td>{{rec.artistId}}</td>
             <td>
-              <button type="button" class="btn btn-warning" (click)="GetAlbumById(rec.albumId)">get selected</button>
+              <button type="button" class="btn btn-warning" (click)="GetAlbumById(rec.albumId); GetAlbumCover(rec.title)">get selected</button>
             </td>
           </tr>
         </table>
@@ -183,7 +183,9 @@
 <p>album id :  {{AlbumSelectedById$.albumId}}</p>
 <p>album genre : {{AlbumSelectedById$.genre}}</p>
 <p>album title: {{AlbumSelectedById$.title}}</p>
-<p> album artist {{AlbumSelectedById$.artistId}}</p>
+<p> album artist : {{AlbumSelectedById$.artistId}}</p>
+<p>cover photo</p>
+<img src={{AlbumImage$[0].thumbnail}}> 
 <div>
 
   <div>

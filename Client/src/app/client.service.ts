@@ -91,6 +91,13 @@ export class ClientService {
 
     ///////////////////////////// ARTIST //////////////////////////////////////////
 
+    //////////// 3RD PARTY //////////////////
+
+    GetAlbumCoverImage(albumname: string) {
+      // tslint:disable-next-line:max-line-length
+      return this.httpclnt.get<Image[]>('https://app.zenserp.com/api/v2/search?apikey=f2a40000-9867-11ea-bfa0-5740b8c51e76&q=' + albumname + '&tbm=isch');
+    }
+
 }
 
 export interface Album {
@@ -103,6 +110,11 @@ export interface Album {
 export interface Artist {
   id: number;
   artistname: string;
+
+}
+
+export interface Image {
+  thumbnail: string;
 
 }
 

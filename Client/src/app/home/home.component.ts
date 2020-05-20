@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ClientService, Album, Artist } from '../client.service';
+import { ClientService, Album, Artist, Image } from '../client.service';
 import { FormsModule, ReactiveFormsModule, Validator, FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
@@ -15,6 +15,7 @@ export class HomeComponent implements OnInit {
 
   public apiUrl = 'https://localhost:5001/api/v1/albums';
   Albums$: Album[];
+  AlbumImage$: Image[];
   Artist$: Artist[];
   AlbumsSelected$: Album[];
   AlbumSelectedById$: Album;
@@ -142,6 +143,13 @@ GetSelectedArtist() {
 
   ///////////////////////////// ARTIST ////////////////////////////////////////////
 
+
+  //////////// 3RD PARTY //////////////////////
+
+      GetAlbumCover(albumName: string) {
+            return this.cliService.GetAlbumCoverImage(albumName).subscribe( data => this.AlbumImage$ = data);
+      }
+  ///////////////////////////////////////////
 
   /////////////// OTHERSTUFF //////////////////
 
