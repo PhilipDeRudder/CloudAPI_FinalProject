@@ -3,9 +3,10 @@ pipeline {
    agent any
 //where the 'work' happends
    stages {
-      stage('build') {
+      stage('installing') {
          steps {
-            echo 'Building application...'
+            echo 'installing node modules...'
+           sh "npm install"
          }
       }
      
