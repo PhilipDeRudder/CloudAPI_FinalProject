@@ -1,7 +1,9 @@
 pipeline {
 //where to execute
+  
    agent any
 //where the 'work' happends
+  tools {nodejs "nodejs"}
    stages {
       stage('installing') {
          steps {
