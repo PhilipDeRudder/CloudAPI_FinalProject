@@ -17,7 +17,7 @@ pipeline {
      stage('build') {
          steps {
             echo 'testing application'
-           sh 'ng serve'
+           sh 'npm build --prod'
          }
       }
      
