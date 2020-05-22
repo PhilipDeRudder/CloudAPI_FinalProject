@@ -21,9 +21,10 @@ pipeline {
          }
       }
      
-     stage('deploy') {
+     stage('Test') {
          steps {
             echo 'deploy application'
+            sh 'npm run test'
          }
       }
    }
