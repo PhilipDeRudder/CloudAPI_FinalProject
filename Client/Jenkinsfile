@@ -2,12 +2,14 @@ pipeline {
 //where to execute
   
    agent any
+  tools {nodejs "node"}
 //where the 'work' happends
 
    stages {
       stage('installing') {
          steps {
             echo 'installing node modules...'
+            sh 'npm install'
            
          }
       }
