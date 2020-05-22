@@ -151,7 +151,10 @@
       </div>
       <div >
         <button type="button"  class="btn btn-warning" (click)="GetAlbumsPaging(0)">Get Albums</button>
-        
+        aantal items per pagina:
+        <select [(ngModel)] = "itemsperpage" (change)="GetAlbumsPaging(0)">
+          <option *ngFor="let amount of ItemsPerPage$" [ngValue]="amount">{{amount}}</option>
+        </select>
         <table class="table table-bordered table-striped mb-0">
           <tr>
             <th (click)="GetAlbumsPaging(3)" scope="col">Album Name</th>

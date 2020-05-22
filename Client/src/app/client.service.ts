@@ -40,8 +40,8 @@ export class ClientService {
   }
 
   ////////// COMBINE //////////////
-  getAlbumsPaging(page: number) {
-    return this.httpclnt.get<Album[]>(this.apiUrl + 'albums?page=' + page + '&length=10');
+  getAlbumsPaging(page: number, itemsperpage: number) {
+    return this.httpclnt.get<Album[]>(this.apiUrl + 'albums?page=' + page + '&length=' + itemsperpage);
     // https://localhost:5001/api/v1/albums?page=2&length=2
   }
 

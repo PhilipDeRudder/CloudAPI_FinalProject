@@ -18,6 +18,8 @@ export class HomeComponent implements OnInit {
   AlbumImage$: Image[];
   Artist$: Artist[];
   AlbumsSelected$: Album[];
+  ItemsPerPage$: number [] = [10, 20, 30];
+  itemsperpage: number;
   AlbumSelectedById$: Album;
   selectedArtist;
   data: Array<any>;
@@ -67,27 +69,28 @@ export class HomeComponent implements OnInit {
   GetAlbumsPaging(value: number) {
 
       console.log(this.page);
+      console.log(this.itemsperpage);
       switch (value) {
         case 0:
           this.page = 0;
-          return this.cliService.getAlbumsPaging(this.page)
+          return this.cliService.getAlbumsPaging(this.page, this.itemsperpage)
           .subscribe(data => this.Albums$ = data);
           break;
         case 1:
           this.page++;
-          this.selectedAlbum += 10;
-          return this.cliService.getAlbumsPaging(this.page)
+          this.selectedAlbum += this.itemsperpage;
+          return this.cliService.getAlbumsPaging(this.page, this.itemsperpage)
           .subscribe(data => this.Albums$ = data);
           break;
         case 2:
           this.page--;
-          this.selectedAlbum -= 10;
+          this.selectedAlbum -= this.itemsperpage;
           /*
           if (this.page < 0 ) {
               this.page = 0;
           }
           */
-          return this.cliService.getAlbumsPaging(this.page)
+          return this.cliService.getAlbumsPaging(this.page, this.itemsperpage)
           .subscribe(data => this.Albums$ = data);
           break;
         case 3:
