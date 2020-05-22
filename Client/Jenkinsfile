@@ -3,18 +3,19 @@ pipeline {
   
    agent any
 //where the 'work' happends
-  tools {nodejs "nodejs"}
+
    stages {
       stage('installing') {
          steps {
             echo 'installing node modules...'
-           sh "npm install"
+           
          }
       }
      
-     stage('test') {
+     stage('build') {
          steps {
             echo 'testing application'
+           sh 'ng serve'
          }
       }
      
