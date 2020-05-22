@@ -111,7 +111,8 @@ export class HomeComponent implements OnInit {
 
 
   PostAlbum(title: any, Bgenre: string , Bartistid: number) {
-    this.id = Bartistid;
+    // html leest alles in als string ook al geef ik dit aan als number dus parse ik nog een expliciet om naar int.
+    Bartistid = +Bartistid;
     return this.cliService.postAlbum(Bgenre, title, Bartistid);
     }
 
@@ -121,7 +122,7 @@ export class HomeComponent implements OnInit {
   }
 
   UpdateAlbum(Btitle: string, Bgenre: string , BalbumId: number) {
-    this.ualbid = BalbumId;
+    BalbumId = +BalbumId;
     console.log(this.ualbid);
     return this.cliService.updateAlbum(Bgenre, Btitle, BalbumId);
   }

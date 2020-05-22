@@ -12,6 +12,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Model;
+using Microsoft.OpenApi.Models;
+
 
 namespace Project
 {
@@ -35,6 +37,12 @@ namespace Project
                )
            );
 
+           services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
+            });
+
+
             services.AddMvc( option => option.EnableEndpointRouting = false);
             services.AddCors();
 
@@ -47,7 +55,12 @@ namespace Project
             {
                 app.UseDeveloperExceptionPage();
             }
-            
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+            });
+
             app.UseCors(builder =>
             builder.AllowAnyOrigin()
                    .AllowAnyMethod()

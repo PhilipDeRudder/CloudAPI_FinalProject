@@ -30,6 +30,7 @@ namespace Controllers
         }
         */
 
+
         //nieuw album aanmaken(CREATE)
         [HttpPost]
         public IActionResult CreatAlbum([FromBody] Album newAlbum)
@@ -41,7 +42,8 @@ namespace Controllers
         }
 
 
-       
+
+        
 
         //Album verwijderen (DELETE)
         [Route("{id}")]
