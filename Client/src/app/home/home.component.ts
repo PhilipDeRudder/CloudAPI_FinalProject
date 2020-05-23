@@ -73,24 +73,20 @@ export class HomeComponent implements OnInit {
       switch (value) {
         case 0:
           this.page = 0;
-          return this.cliService.getAlbumsPaging(this.page, this.itemsperpage)
+          return this.cliService.getAlbumsPaging(this.page, this.itemsperpage, this.choise)
           .subscribe(data => this.Albums$ = data);
           break;
         case 1:
           this.page++;
           this.selectedAlbum += this.itemsperpage;
-          return this.cliService.getAlbumsPaging(this.page, this.itemsperpage)
+          return this.cliService.getAlbumsPaging(this.page, this.itemsperpage, this.choise)
           .subscribe(data => this.Albums$ = data);
           break;
         case 2:
           this.page--;
           this.selectedAlbum -= this.itemsperpage;
-          /*
-          if (this.page < 0 ) {
-              this.page = 0;
-          }
-          */
-          return this.cliService.getAlbumsPaging(this.page, this.itemsperpage)
+
+          return this.cliService.getAlbumsPaging(this.page, this.itemsperpage, this.choise)
           .subscribe(data => this.Albums$ = data);
           break;
         case 3:
@@ -101,7 +97,7 @@ export class HomeComponent implements OnInit {
             } else {
               this.choise = 'desc';
             }
-            return this.cliService.getAlbumsSorting(this.sort = 'title', this.choise)
+            return this.cliService.getAlbumsPaging(this.page, this.itemsperpage, this.choise)
             .subscribe(data => this.Albums$ = data);
             break;
       }
