@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Query } from '@angular/core';
 import { ClientService, Album, Artist, Image } from '../client.service';
 import { FormsModule, ReactiveFormsModule, Validator, FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-
+import {PicturesService} from '../pictures.service';
 
 
 @Component({
@@ -34,10 +34,14 @@ export class HomeComponent implements OnInit {
   id: number;
   ualbid: number;
 
+  ///
+  photosquery: Query;
+  photos;
 
 
 
-  constructor( private cliService: ClientService, private http: HttpClient ) { }
+
+  constructor( private pictserv: PicturesService, private cliService: ClientService, private http: HttpClient ) { }
 
 
 
@@ -150,8 +154,13 @@ GetSelectedArtist() {
 
   //////////// 3RD PARTY //////////////////////
 
-      GetAlbumCover(albumName: string) {
-            return this.cliService.GetAlbumCoverImage(albumName).subscribe( data => this.AlbumImage$ = data);
+
+
+      GetAlbumCover(albumName: string){
+        this.pictserv.GetPhotos(albumName).subscribe(photos => {
+          this.photosquery = photos;
+          this.photos = this.photosquery['image_results'];
+        });
       }
   ///////////////////////////////////////////
 
