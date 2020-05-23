@@ -1,0 +1,32 @@
+pipeline {
+//where to execute
+  
+   agent any
+  tools {nodejs "node"}
+//where the 'work' happends
+
+   stages {
+      stage('installing') {
+         steps {
+            echo 'installing node modules...'
+            sh 'npm install'
+           
+         }
+      }
+     
+     stage('build') {
+         steps {
+            echo 'testing application'
+           sh 'npm build --prod'
+         }
+      }
+     
+     stage('Test') {
+         steps {
+            echo 'deploy application'
+            sh 'npm run test'
+         }
+      }
+   }
+}
+
