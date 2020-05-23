@@ -51,6 +51,12 @@ export class ClientService {
 
   }
 
+  GetAlbumByGenre(genre: string) {
+      return this.httpclnt.get<Album[]>(this.apiUrl + 'albums?genre=' + genre);
+
+    // http://localhost:5000/api/v1/albums?genre=hip-hop
+  }
+
   /////////////////////////////
 
   postAlbum = function(btitle: string, bgenre: string, bartistid: number ) {

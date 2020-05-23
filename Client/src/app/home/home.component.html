@@ -204,10 +204,44 @@ Select Album :
         <option *ngFor="let alb of AlbumsSelected$">{{alb.title}} </option>  
 </select> 
 </div>
-
-
-  
 </div>  
 </div>
 
+
+<!--searching test-->
+<div class="col-md-6">
+  <div class="card">
+      <div class="card-header">
+       <h2>Search Album By Genre</h2> 
+        
+      </div>
+      <div >
+        <form >
+        <input [(ngModel)]="albumSearch$" type="text" placeholder="Search.." name="search">
+        <button (click)="GeAlbumByAlbumGenre()" type="button"  class="btn btn-warning">SEARCH </button>
+      </form>
+
+        <table class="table table-bordered table-striped mb-0">
+          <tr>
+            <th scope="col">Album Name</th>
+            <th scope="col">Genre </th>
+            <th scope="col">Id number</th>
+            <th scope="col">Artist Id</th>
+          </tr>
+          <tr *ngFor="let rec of AlbumsSelectByGenre$">
+
+            <td>{{rec.title}}</td>
+            <td>{{rec.genre}}</td>
+            <td>{{rec.albumId}}</td>
+            <td>{{rec.artistId}}</td>
+            <td>
+              <button type="button" class="btn btn-warning" (click)="GetAlbumById(rec.albumId); GetAlbumCover(rec.title)">get selected</button>
+            </td>
+          </tr>
+        </table>
+        
+      </div>
+    </div>
+
+</div>
 <router-outlet></router-outlet>

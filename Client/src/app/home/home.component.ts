@@ -18,6 +18,8 @@ export class HomeComponent implements OnInit {
   AlbumImage$: Image[];
   Artist$: Artist[];
   AlbumsSelected$: Album[];
+  AlbumsSelectByGenre$: Album[];
+  albumSearch$: string;
   ItemsPerPage$: number [] = [10, 20, 30];
   itemsperpage: number;
   AlbumSelectedById$: Album;
@@ -59,12 +61,14 @@ export class HomeComponent implements OnInit {
     return this.cliService.getAlbumById(albumid).subscribe(data => this.AlbumSelectedById$ = data);
   }
 
-  GeAlbumByArtistId() {
-    return this.cliService.getAlbumsByArtistId(this.selectedArtist)
-    .subscribe(data => this.AlbumsSelected$ = data);
+  //////////////
+  GeAlbumByAlbumGenre() {
+    console.log(this.albumSearch$);
+    return this.cliService.GetAlbumByGenre(this.albumSearch$)
+    .subscribe(data => this.AlbumsSelectByGenre$ = data);
 
   }
-
+  ///////////////////
 
   GetAlbumsPaging(value: number) {
 
