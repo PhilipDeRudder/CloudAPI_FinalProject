@@ -59,21 +59,25 @@ export class ClientService {
 
   /////////////////////////////
 
-  postAlbum = function(btitle: string = '', bgenre: string = '', bartistid: number ) {
+  postAlbum = function(btitle: string = '', bgenre: string = '', bartistid: number, releastedate: Date ) {
     return this.httpclnt.post(this.apiUrl  + 'albums', {
       title:  btitle,
       genre: bgenre,
-      artistId: bartistid} ).subscribe();
+      artistId: bartistid,
+      release_date: releastedate} ).subscribe();
 
   };
 
 
-  updateAlbum(bgenre: string = '', btitle: string = '', balbum: number ) {
+  updateAlbum(bgenre: string = '', btitle: string = '', balbum: number, brelease: Date, bartistId: number ) {
 
     return this.httpclnt.put(this.apiUrl + 'albums', {
       title: btitle,
       genre: bgenre,
-      albumId: balbum} ).subscribe();
+      albumId: balbum,
+      release_date: brelease,
+      artistId: bartistId
+    } ).subscribe();
 
   }
 

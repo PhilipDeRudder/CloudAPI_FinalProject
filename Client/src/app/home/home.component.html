@@ -40,8 +40,14 @@
             </td>
           </tr>
           <tr>
+            <td>Release Date</td>
+            <td style="height: 50px;"> 
+                <input style="height: 50px;" class="form-control" type="date" #releaseDate placeholder="releasedate">
+            </td>
+          </tr>
+          <tr>
             <td>
-                <button class="btn btn-success"  (click)="PostAlbum(title.value,genre.value ,artistid.value)" >Add Album</button>
+                <button class="btn btn-success"  (click)="PostAlbum(title.value,genre.value ,artistid.value, releaseDate.value)" >Add Album</button>
             </td>
           </tr>
         </table>
@@ -105,10 +111,22 @@
                 </td>
               </tr>
               <tr>
+                <td>Artist Id</td>
+                <td> 
+                    <input type="number" #uartistId class="form-control" placeholder="artistId">
+                </td>
+              </tr>
+              <tr>
+                <td>Release Date </td>
+                <td style="height: 50px;"> 
+                    <input style="height: 50px;" type="date" #ureleaseDate class="form-control" placeholder="ureleasedate">
+                </td>
+              </tr>
+              <tr>
                 <tr>
                 <td></td>
                 <td>
-                    <button type="button" (click)="UpdateAlbum(utitle.value, ugenre.value , ualbumid.value)" class="btn btn-info">Update method</button>
+                    <button type="button" (click)="UpdateAlbum(utitle.value, ugenre.value , ualbumid.value, ureleaseDate.value, uartistId.value)" class="btn btn-info">Update method</button>
                 </td>
               </tr>
             </table>
@@ -170,7 +188,7 @@
             <td>{{rec.genre}}</td>
             <td>{{rec.albumId}}</td>
             <td>{{rec.artistId}}</td>
-            <td>{{rec.release_date}}</td>
+            <td>{{rec.release_date | date:'dd/MM/yyy'}}</td>
             <td>
               <button type="button" class="btn btn-warning" (click)="GetAlbumById(rec.albumId); GetAlbumCover(rec.title)" >get selected</button>
             </td>

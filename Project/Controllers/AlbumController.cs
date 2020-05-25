@@ -85,6 +85,8 @@ namespace Controllers
             
             orgAlb.Title = updateAlbum.Title;
             orgAlb.Genre = updateAlbum.Genre;
+            orgAlb.ArtistId = updateAlbum.ArtistId;
+            orgAlb.release_date = updateAlbum.release_date;
             context.SaveChanges();
             return Ok(orgAlb);
         

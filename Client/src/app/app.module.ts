@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { HttpClient } from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
+import {RouterModule} from '@angular/router';
 
 
 // import {ToastaModule} from 'ngx-toasta'

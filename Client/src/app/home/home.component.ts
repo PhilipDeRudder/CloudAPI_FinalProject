@@ -124,10 +124,11 @@ export class HomeComponent implements OnInit {
   }
 
 
-  PostAlbum(title: string, Bgenre: string , Bartistid: number) {
+  PostAlbum(title: string, Bgenre: string , Bartistid: number, releaseDate: Date) {
     // html leest alles in als string ook al geef ik dit aan als number dus parse ik nog een expliciet om naar int.
     Bartistid = +Bartistid;
-    return this.cliService.postAlbum( title, Bgenre, Bartistid);
+    const rdate = new Date(releaseDate);
+    return this.cliService.postAlbum( title, Bgenre, Bartistid, rdate);
     }
 
 
@@ -135,10 +136,12 @@ export class HomeComponent implements OnInit {
     return this.cliService.deleteAlbum(Bdelete);
   }
 
-  UpdateAlbum(Btitle: string, Bgenre: string , BalbumId: number) {
+  UpdateAlbum(Btitle: string, Bgenre: string , BalbumId: number, releaseDate: Date, bartistId: number) {
     BalbumId = +BalbumId;
+    bartistId = +bartistId;
+    const udate = new Date(releaseDate);
     console.log(this.ualbid);
-    return this.cliService.updateAlbum(Bgenre, Btitle, BalbumId);
+    return this.cliService.updateAlbum(Bgenre, Btitle, BalbumId, udate, bartistId);
   }
   ///////////////////////////// ALBUM ////////////////////////////////////////////
 
