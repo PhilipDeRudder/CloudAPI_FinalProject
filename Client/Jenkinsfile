@@ -1,7 +1,11 @@
 pipeline {
 //where to execute
   
+
    agent any
+  environment {
+    PATH='/usr/local/bin:/usr/bin:/bin'
+  }
   tools {nodejs "node"}
 //where the 'work' happends
 
@@ -17,14 +21,14 @@ pipeline {
      stage('build') {
          steps {
             echo 'testing application'
-           sh 'npm build --prod'
+           sh 'npm run build --prod'
          }
       }
      
      stage('Test') {
          steps {
-            echo 'deploy application'
-            sh 'npm run test'
+            echo 'Test application'
+           
          }
       }
    }
