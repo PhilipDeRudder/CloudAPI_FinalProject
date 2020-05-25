@@ -36,7 +36,7 @@ export class ClientService {
   }
 
   getAlbumsByArtistId(artistId: number) {
-    return this.httpclnt.get<Album[]>(this.apiUrl + 'albums/' + artistId);
+    return this.httpclnt.get<Album[]>(this.apiUrl + 'albums/artist?idin=' + artistId);
   }
 
   ////////// COMBINE //////////////

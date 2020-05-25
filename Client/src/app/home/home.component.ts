@@ -19,6 +19,7 @@ export class HomeComponent implements OnInit {
   Artist$: Artist[];
   AlbumsSelected$: Album[];
   AlbumsSelectByGenre$: Album[];
+  AlbumSelectedByArtistId$: Album[];
   albumSearch$: string;
   ItemsPerPage$: number [] = [10, 20, 30];
   itemsperpage: number;
@@ -74,6 +75,11 @@ export class HomeComponent implements OnInit {
 
   }
   ///////////////////
+  GetAlbumByArtistId() {
+    console.log(this.selectedArtist);
+    return this.cliService.getAlbumsByArtistId(this.selectedArtist).subscribe(data => this.AlbumSelectedByArtistId$ = data);
+
+  }
 
   GetAlbumsPaging(value: number) {
 

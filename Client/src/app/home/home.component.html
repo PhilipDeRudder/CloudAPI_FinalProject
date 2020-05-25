@@ -234,6 +234,29 @@
         
       </div>
     </div>
-
 </div>
+
+<!-- selected shizzle-->
+<div class="col-md-6"> 
+<h2> Select Artist --> get Albums --> Select Album --> get Tracks</h2>
+<div>
+  <h2>Artist</h2>
+<select (change)="GetSelectedArtist(); GetAlbumByArtistId()" [(ngModel)]= "selectedArtist" style="margin-right: 20px;">
+  <option *ngFor=" let rec of Artist$" [ngValue]="rec.id">{{rec.id}}: {{rec.artistname}}</option>
+</select>
+</div>
+<div>
+<h2>Albums</h2>
+<select >
+  <option *ngFor="let rec of AlbumSelectedByArtistId$">{{rec.title}}</option>
+</select>
+</div>
+<div>
+<h2>Tracks</h2>
+<select >
+  <option *ngFor="let rec of AlbumSelectedByArtistId$">{{rec.title}}</option>
+</select>
+</div>
+</div>
+
 <router-outlet></router-outlet>
