@@ -23,7 +23,8 @@
           <tr>
             <td>Title</td>
             <td>
-              <input re #title class="form-control" type="text" placeholder="title">
+              <input asp-for="title" #title class="form-control" type="text" placeholder="title">
+              <span asp-validation-for="title" class="text-danger"></span>
             </td>
           </tr>
           <tr>

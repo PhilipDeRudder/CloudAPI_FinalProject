@@ -59,8 +59,7 @@ export class ClientService {
 
   /////////////////////////////
 
-  postAlbum = function(btitle: string, bgenre: string, bartistid: number ) {
-
+  postAlbum = function(btitle: string = '', bgenre: string = '', bartistid: number ) {
     return this.httpclnt.post(this.apiUrl  + 'albums', {
       title:  btitle,
       genre: bgenre,
@@ -69,7 +68,7 @@ export class ClientService {
   };
 
 
-  updateAlbum(bgenre: string, btitle: string, balbum: number ) {
+  updateAlbum(bgenre: string = '', btitle: string = '', balbum: number ) {
 
     return this.httpclnt.put(this.apiUrl + 'albums', {
       title: btitle,

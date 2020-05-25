@@ -33,6 +33,7 @@ export class HomeComponent implements OnInit {
   public selectedAlbum = 0;
   id: number;
   ualbid: number;
+  error: any;
 
   ///
   photosquery: Query;
@@ -117,10 +118,10 @@ export class HomeComponent implements OnInit {
   }
 
 
-  PostAlbum(title: any, Bgenre: string , Bartistid: number) {
+  PostAlbum(title: string, Bgenre: string , Bartistid: number) {
     // html leest alles in als string ook al geef ik dit aan als number dus parse ik nog een expliciet om naar int.
     Bartistid = +Bartistid;
-    return this.cliService.postAlbum(Bgenre, title, Bartistid);
+    return this.cliService.postAlbum( title, Bgenre, Bartistid);
     }
 
 
@@ -156,9 +157,10 @@ GetSelectedArtist() {
 
 
 
-      GetAlbumCover(albumName: string){
+      GetAlbumCover(albumName: string) {
         this.pictserv.GetPhotos(albumName).subscribe(photos => {
           this.photosquery = photos;
+          // tslint:disable-next-line:no-string-literal
           this.photos = this.photosquery['image_results'];
         });
       }

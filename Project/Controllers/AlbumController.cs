@@ -35,10 +35,15 @@ namespace Controllers
         [HttpPost]
         public IActionResult CreatAlbum([FromBody] Album newAlbum)
         {
+            if(!ModelState.IsValid){
+    
+                return BadRequest(ModelState);
+            }
+            
             context.Albums.Add(newAlbum);
             context.SaveChanges();
             return Created("", newAlbum);
-            
+        
         }
 
 
@@ -68,6 +73,11 @@ namespace Controllers
         [HttpPut]
         public IActionResult updateAlbum([FromBody] Album updateAlbum)
         {
+            if(!ModelState.IsValid){
+    
+                return BadRequest(ModelState);
+            }
+
             var orgAlb = context.Albums.Find(updateAlbum.AlbumId);
             if(orgAlb == null){
                 return NotFound();
@@ -151,6 +161,27 @@ namespace Controllers
 
             return Ok(album);
         }
+
+        [Route("artist")]
+        [HttpGet]
+        public IActionResult GetAlbumAndArtist(int idin){
+            var albwithartist = context.Albums
+                                .Include(d => d.Artist).Where(d => d.ArtistId == idin);
+                            
+                                
+                                
+
+
+            if(albwithartist == null)
+                return NotFound();
+            
+            return Ok(albwithartist);   
+
+        }
+
+
+
+
 
 
 

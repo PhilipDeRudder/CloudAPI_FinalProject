@@ -37,6 +37,12 @@ namespace Project
                )
            );
 
+           services.Configure<ApiBehaviorOptions>(options =>
+           {
+               options.SuppressModelStateInvalidFilter = true;
+
+           });
+
            services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });

@@ -11,10 +11,13 @@ namespace Model
         public int AlbumId { get; set; }
 
         /////MODEL VALIDATION/////////
-      //  [Required]
-       // [StringLength(160, MinimumLength = 2)]
+        [Required(ErrorMessage = "title is required")]
         public string Title { get; set; }
+         [Required(ErrorMessage= "Genre is Required")]
+         [StringLength(20 , ErrorMessage = "Maxum length of 20 char")]
         public string Genre { get; set; } 
+
+        [Range(1, int.MaxValue)]
         public int ArtistId{get;set;}
         
         public DateTime release_date {get;set;}
