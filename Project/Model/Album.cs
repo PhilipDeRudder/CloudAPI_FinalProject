@@ -14,7 +14,7 @@ namespace Model
         [Required(ErrorMessage = "title is required")]
         public string Title { get; set; }
         [Required(ErrorMessage= "Genre is Required")]
-        [StringLength(27 , ErrorMessage = "Maxum length of 20 char")]
+        [StringLength(27 , ErrorMessage = "Maxum length of 27 char")]
         public string Genre { get; set; } 
 
         [Range(1, 100)]
