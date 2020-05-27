@@ -3,9 +3,7 @@ pipeline {
   
 
    agent any
-  environment {
-    PATH='/usr/local/bin:/usr/bin:/bin'
-  }
+
   tools {nodejs "node"}
 //where the 'work' happends
 
@@ -21,7 +19,7 @@ pipeline {
      stage('build') {
          steps {
             echo 'testing application'
-           sh 'npm run build --prod'
+           sh 'npm run "build --prod"'
          }
       }
      
