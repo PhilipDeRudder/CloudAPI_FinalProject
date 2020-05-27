@@ -100,7 +100,8 @@ ng serve
     dotnet run
     ```
 
-## Usage Client
+##  Client
+![clientExample](https://user-images.githubusercontent.com/45263088/83016756-c6088200-a022-11ea-8cf1-e7c9cbe23d4b.PNG)
 
 
 
