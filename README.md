@@ -7,6 +7,14 @@ De Muziek api biedt mogelijkheden om informatie over Artiesten, Albums en Tracks
 ### SWAGGER:
 Omdat postman redelijk wat tijd inneemt om actions te testen heb ik swagger aan mijn project toegevoegd. Wanneer je de API opstart en vervolgens surft naar localhost:5001/swagger krijg je alle enpoints te zien van je API.
 #### Examples:
+endpoints:
+![Swagger1](https://user-images.githubusercontent.com/45263088/83016252-ef74de00-a021-11ea-8149-16caec4380e4.PNG)
+
+inside:
+ ![swaggerExample](https://user-images.githubusercontent.com/45263088/83016353-17644180-a022-11ea-801a-0bdd47cd9489.PNG)
+
+schema's:
+![swaggerSchema](https://user-images.githubusercontent.com/45263088/83016478-4a0e3a00-a022-11ea-83f0-9b02161cbbe1.PNG)
 
 
 
