@@ -10,7 +10,7 @@ pipeline {
          }
       stage('build') {
          steps {
-            echo "ng serve"
+            echo "npm run build --prod"
          }
          
        stage('dep') {
