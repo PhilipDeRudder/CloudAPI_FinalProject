@@ -129,6 +129,12 @@ export interface Artist {
 
 }
 
+
+
+
+
+
+
 export interface RootObject {
 image_results: Imageresult[];
 }
