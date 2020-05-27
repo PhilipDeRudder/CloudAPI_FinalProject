@@ -98,6 +98,11 @@ export class ClientService {
 
   }
 
+  postArtist(Aname: string) {
+    return this.httpclnt.post(this.apiUrl  + 'artists', {
+      artistname: Aname} ).subscribe();
+  }
+
 
     ///////////////////////////// ARTIST //////////////////////////////////////////
 

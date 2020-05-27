@@ -54,6 +54,31 @@
       </form>
       </div>
     </div>
+
+    <div class="card">
+      <div class="card-header">
+       <h2>Create --> Add Artist </h2> 
+      </div>
+      <div class="card-body">
+        <form>
+        <table class="table table-bordered">
+          <tr>
+            <td>Name</td>
+            <td>
+              <input asp-for="title" #arName class="form-control" type="text" placeholder="name">
+              <span asp-validation-for="title" class="text-danger"></span>
+            </td>
+          </tr>
+       
+          <tr>
+            <td>
+                <button class="btn btn-success"  (click)="PostArtist(arName.value)" >Add Artist</button>
+            </td>
+          </tr>
+        </table>
+      </form>
+      </div>
+    </div>
   </div>
 
   <div class="col-md-6">

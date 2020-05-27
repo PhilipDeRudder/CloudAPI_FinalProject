@@ -156,6 +156,11 @@ GetSelectedArtist() {
 
 }
 
+PostArtist(Aname: string) {
+  console.log(Aname);
+  return this.cliService.postArtist(Aname);
+}
+
 
   ///////////////////////////// ARTIST ////////////////////////////////////////////
 

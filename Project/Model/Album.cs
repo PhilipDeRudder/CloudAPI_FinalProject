@@ -19,7 +19,7 @@ namespace Model
 
         [Range(1, 100)]
         public int ArtistId{get;set;}
-        [Range(typeof(DateTime), "1/1/1860", "1/1/2020")]
+        [Range(typeof(DateTime), "1/1/1860", "27/05/2020")]
         public DateTime release_date {get;set;}
          [JsonIgnore]
          public Artist Artist { get; set; }
