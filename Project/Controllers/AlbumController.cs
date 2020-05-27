@@ -100,19 +100,14 @@ namespace Controllers
         public List<Album> GetAllAlbums(string genre, string title, int? page,string sort, int length = 100, string dir = "asc")
         {
             IQueryable<Album> query = context.Albums;
-            /////////PAGING///////////////
+          ///////// Filtering /////////
             if (!string.IsNullOrWhiteSpace(genre))
                 query = query.Where(d => d.Genre == genre);
             if (!string.IsNullOrWhiteSpace(title))
                 query = query.Where(d => d.Genre == title);
+        /////// Filtering //////////
 
-            if(page.HasValue)
-                query = query.Skip(page.Value * length);
-            query = query.Take(length);
-
-             /////////PAGING///////////////
-
-             ////////SORTING//////////////
+                   ////////SORTING//////////////
             if(!string.IsNullOrWhiteSpace(sort))
             {
                 switch(sort)
@@ -138,6 +133,15 @@ namespace Controllers
 
             }
             ////////SORTING//////////////
+              /////////PAGING///////////////
+
+            if(page.HasValue)
+                query = query.Skip(page.Value * length);
+            query = query.Take(length);
+
+             /////////PAGING///////////////
+
+          
 
 
             return query.ToList();
