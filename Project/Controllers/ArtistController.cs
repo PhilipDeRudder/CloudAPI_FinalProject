@@ -23,15 +23,16 @@ namespace Controllers
 
         //api/v1/artists
         //Alle artiesten opvragen (SELECT/READ)
+        /*
         [HttpGet]
         public List<Artist> GetAllArtist()
         {
             return context.Artists.ToList();
         }
  
-        
+        */
 
-        /*
+        
 
         //artist opvragen adhv naam 
         [HttpGet]
@@ -54,8 +55,7 @@ namespace Controllers
         public IActionResult GetArtist(int id)
         {
             var artist = context.Artists
-                                .Include(d => d.Albums)
-                                .SingleOrDefault(d => d.Id == id);
+                                .Where(d => d.Id == id);
             if(artist == null)
                 return NotFound();
 
@@ -107,6 +107,6 @@ namespace Controllers
                 return Ok(orgArtist);
         }
        
-          */
+        
     }
 }

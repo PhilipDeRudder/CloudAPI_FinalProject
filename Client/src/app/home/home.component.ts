@@ -1,9 +1,8 @@
 import { Component, OnInit, Query } from '@angular/core';
-import { ClientService, Album, Artist, Image } from '../client.service';
+import { ClientService, Album, Artist, Imageresult, RootObject} from '../client.service';
 import { FormsModule, ReactiveFormsModule, Validator, FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import {PicturesService} from '../pictures.service';
 
 
 @Component({
@@ -15,7 +14,6 @@ export class HomeComponent implements OnInit {
 
   public apiUrl = 'https://localhost:5001/api/v1/albums';
   Albums$: Album[];
-  AlbumImage$: Image[];
   Artist$: Artist[];
   AlbumsSelected$: Album[];
   AlbumsSelectByGenre$: Album[];
@@ -37,13 +35,13 @@ export class HomeComponent implements OnInit {
   error: any;
 
   ///
-  photosquery: Query;
-  photos;
+  ACovers$: Imageresult[];
+  Acover;
 
 
 
 
-  constructor( private pictserv: PicturesService, private cliService: ClientService, private http: HttpClient ) { }
+  constructor( private cliService: ClientService, private http: HttpClient ) { }
 
 
 
@@ -167,10 +165,10 @@ GetSelectedArtist() {
 
 
       GetAlbumCover(albumName: string) {
-        this.pictserv.GetPhotos(albumName).subscribe(photos => {
-          this.photosquery = photos;
+        this.cliService.getAlbumCovers(albumName).subscribe(AcoverI => {
+          this.ACovers$ = AcoverI;
           // tslint:disable-next-line:no-string-literal
-          this.photos = this.photosquery['image_results'];
+          this.Acover = this.ACovers$['image_results'];
         });
       }
   ///////////////////////////////////////////

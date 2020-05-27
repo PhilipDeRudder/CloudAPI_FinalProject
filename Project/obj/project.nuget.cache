@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "rVmpEGPdSEpwOEUC1hYZ8xjCfYt/UsB54qiSAAupqMkUim+cX0RbRcKREqmg1jmLcaVBBkfgBbYdgM6r9LEY1Q==",
+  "dgSpecHash": "QkEJnwi8tcHJ9G5YJwgJwg1VaQ0v7nTOasB7QofGgE1IE6vaS3tjQiNp5ZYR1rwqTb4R8IwateXL6ePMNp0GHQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\phili\\OneDrive\\AP\\2e\\2e trimester\\Cloud API's\\CloudAPI_FinalProject\\Project\\Project.csproj",
   "expectedPackageFiles": [
@@ -95,8 +95,7 @@
     "C:\\Users\\phili\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\phili\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
     "C:\\Users\\phili\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512",
-    "C:\\Users\\phili\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.2\\microsoft.aspnetcore.app.ref.3.1.2.nupkg.sha512"
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
   ],
   "logs": []
 }

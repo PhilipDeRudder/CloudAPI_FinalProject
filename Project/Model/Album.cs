@@ -13,13 +13,13 @@ namespace Model
         /////MODEL VALIDATION/////////
         [Required(ErrorMessage = "title is required")]
         public string Title { get; set; }
-         [Required(ErrorMessage= "Genre is Required")]
-         [StringLength(20 , ErrorMessage = "Maxum length of 20 char")]
+        [Required(ErrorMessage= "Genre is Required")]
+        [StringLength(27 , ErrorMessage = "Maxum length of 20 char")]
         public string Genre { get; set; } 
 
-        [Range(1, int.MaxValue)]
+        [Range(1, 100)]
         public int ArtistId{get;set;}
-        
+        [Range(typeof(DateTime), "1/1/1860", "1/1/2020")]
         public DateTime release_date {get;set;}
          [JsonIgnore]
          public Artist Artist { get; set; }

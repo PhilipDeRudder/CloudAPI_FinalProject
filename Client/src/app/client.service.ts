@@ -103,10 +103,10 @@ export class ClientService {
 
     //////////// 3RD PARTY //////////////////
 
- GetAlbumCoverImage(albumname: string) {
+    getAlbumCovers(name: string) {
       // tslint:disable-next-line:max-line-length
-      return this.httpclnt.get<Image[]>('https://app.zenserp.com/api/v2/search?apikey=f2a40000-9867-11ea-bfa0-5740b8c51e76&q=' + albumname + '&tbm=isch');
-  }
+      return this.httpclnt.get<Imageresult[]>('https://app.zenserp.com/api/v2/search?apikey=366e9220-9faa-11ea-8be8-4fbb886d6906&q=' + name + '&tbm=isch&device=desktop');
+   }
 
 }
 
@@ -124,9 +124,10 @@ export interface Artist {
 
 }
 
-export interface Image {
-  thumbnail: string;
-
+export interface RootObject {
+image_results: Imageresult[];
 }
-
+export interface Imageresult {
+  thumbnail: string;
+}
 
